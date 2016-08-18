@@ -10,7 +10,7 @@ class PWSocket:
 
     def __del__(self):
         print 'closing socket...'
-        self.close();
+        self.close()
 
     def connect(self, addr, port):
         print 'connecting to ' + addr + ':' + str(port)
