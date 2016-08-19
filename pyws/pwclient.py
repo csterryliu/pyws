@@ -7,6 +7,8 @@ from pyws import PWSocket
 
 _WS_IMPLEMENTED_VERSION = '13'
 _WSKEY_RANDOM_BYTES_SIZE = 16
+_WS_DEFAULT_PORT = 80
+_WSS_DEFAULT_PORT = 443
 
 class PWClient:
     'The websocket client'
@@ -28,6 +30,9 @@ class PWClient:
         if (secureConn == 'wss'):
             print 'Use TLS connection'
         self.__sock.connect(host, port)
+
+        if port != _WS_DEFAULT_PORT and port != _WSS_DEFAULT_PORT:
+            host = ('%s:%d' % (host, port))
 
         self.set_header('Host', host)
         self.set_header('Sec-WebSocket-Key', self.__produce_websocket_key())
