@@ -25,10 +25,9 @@ class PWClient:
         return handshake_msg
 
     def __produce_websocket_key(self):
-        #ran_bytes = os.urandom(_WSKEY_RANDOM_BYTES_SIZE)
-        #key_str = ran_bytes.encode('base64')
-        key_str = 'dGhlIHNhbXBsZSBub25jZQ=='
-        return key_str
+        ran_bytes = os.urandom(_WSKEY_RANDOM_BYTES_SIZE)
+        key_str = ran_bytes.encode('base64')
+        return str.rstrip(key_str, '\n')
 
     def set_header(self, key, value):
         self.__handhakeDic[key] = value
