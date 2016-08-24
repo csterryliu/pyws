@@ -1,10 +1,8 @@
 # Author: Terry Liu
 # License: MIT
 
-import os
-import base64
-from pyws import PWSocket
-from pyws import pwhandshake
+from pyws.pwsocket import PWSocket
+from pyws.pwhandshake import *
 
 _WS_DEFAULT_PORT = 80
 _WSS_DEFAULT_PORT = 443
@@ -34,7 +32,7 @@ class PWClient:
         if port != _WS_DEFAULT_PORT and port != _WSS_DEFAULT_PORT:
             host = ('%s:%d' % (host, port))
 
-        pwhandshake.start_handshaking(self.__sock, host, self.__userAddHandshake)
+        start_handshaking(self.__sock, host, self.__userAddHandshake)
 
     def set_header(self, key, value):
         if self.__userAddHandshake is None:

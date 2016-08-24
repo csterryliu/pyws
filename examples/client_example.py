@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from pyws import PWClient
+from pyws import pwclient
 
 print """
 ----------------------------------------------------------
@@ -13,6 +13,6 @@ License: MIT
 ----------------------------------------------------------
 """
 
-c = PWClient()
+c = pwclient.PWClient()
 c.set_header('test', '123')
 c.start_connection('ws://127.0.0.1', 3000)
